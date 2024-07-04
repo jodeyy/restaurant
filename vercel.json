@@ -11,6 +11,10 @@
             "dest": "/public/build/"
         },
         {
+            "src": "/assets/css/(.*)",
+            "dest": "/public/assets/css/"
+        },
+        {
             "src": "/css/(.*)",
             "dest": "/public/css/"
         },
@@ -29,6 +33,10 @@
         {
             "src": "/js/(.*)",
             "dest": "/public/js/"
+        },
+        {
+            "src": "/assets/js/(.*)",
+            "dest": "/public/assets/js/"
         },
         {
             "src": "/lib/(.*)",
