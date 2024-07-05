@@ -17,7 +17,7 @@
     Halaman Pembayaran
   </h2>
   @can('create', App\Pembayaran::class)
-  <a href="{{route('pembayaran.create')}}" class="px-5 py-3 font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">Bayar Disini</a>
+  <a href="{{route('pembayaran.create')}}" class="px-5 py-3 font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">Tambah</a>
 
     @endcan
     
@@ -29,7 +29,10 @@
               <th class="text-center">No Reservasi</th>
              <th class="text-center">No Meja</th>
               <th class="text-center">Metode Pembayaran</th>
+              <th class="text-center">Harga</th>
+              <th class="text-center">Jumlah</th>
              <th class="text-center">Total Pesanan</th>
+
               <th class="text-center">Aksi</th>
             </tr>
           </thead>
@@ -39,9 +42,10 @@
           <td class="px-4 py-3 text-center">{{ $item["reservasi"]["no_reservasi"] }}</td>
           <td class="px-4 py-3 text-center">{{ $item["meja"]["nomor_meja"] }}</td>
           <td class="px-4 py-3 text-center">{{ $item["metode"] }}</td>
-          <td class="px-4 py-3 text-center">{{ $item["reservasi"]["jumlah"]*$item['menu']['harga_menu']}}</td>
-          <td class="px-4 py-3 text-center">{{ $item["aksi"]}}</td>
-          <td class="px-4 py-3">
+          <td class="px-4 py-3 text-center">{{ $item["menu"]["harga_menu"] }}</td>
+          <td class="px-4 py-3 text-center">{{ $item['jumlah'] }}</td>
+          <td class="px-4 py-3 text-center">{{ $item["jumlah"]*$item['menu']['harga_menu']}}</td>
+          <td class="px-4 py-3 text-center">
                 <form action="{{route('pembayaran.destroy', $item["id"])}}" method="post" style="display: inline">
                     @method('DELETE')
                     @csrf

@@ -9,7 +9,7 @@ class pembayaran extends Model
 {
     use HasFactory;
     protected $fillable=[
-        'reservasi_id','meja_id','metode','total'];
+        'reservasi_id','meja_id','menu_id','metode','jumlah'];
 
         public function reservasi()
         {
@@ -25,4 +25,13 @@ class pembayaran extends Model
             //1 prodi 1 fakultas belongsTo()
             //1 fakultas > 1 prodi hasMany()
         }
+        public function menu()
+        {
+            return $this->belongsTo(Menu::class, 'menu_id');
+            //return $this->belongsTo(Nama_Model::class,'fakultas_id');
+            //1 prodi 1 fakultas belongsTo()
+            //1 fakultas > 1 prodi hasMany()
+        }
+
+        
 }

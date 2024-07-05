@@ -45,12 +45,12 @@ class PembayaranController extends Controller
         $val = $request->validate([
             'reservasi_id'=>"required|max:45",
             'meja_id'=>"required",
+            'menu_id'=>"required",
             'metode'=>"required",
-            'total'=>"required",
-            'aksi'=>"required",
+            'jumlah'=>"required",
         ]);
         Pembayaran::create($val);
-        return redirect()->route('pembayaran.index')->with('success',$val['total'].' Berhasil disimpan');
+        return redirect()->route('pembayaran.index')->with('success',$val['jumlah'].' Berhasil disimpan');
     }
 
     /**
@@ -84,13 +84,13 @@ class PembayaranController extends Controller
         $val = $request->validate([
             'reservasi_id'=>"required|max:45",
             'meja_id'=>"required",
+            'menu_id'=>"required",
             'metode'=>"required",
-            'total'=>"required",
-            'aksi'=>"required",
+            'jumlah'=>"required",
 
         ]);
         Pembayaran::where('id',$pembayaran['id'])->update($val);
-        return redirect()->route('pembayaran.index')->with('success',$val['total'].' Berhasil di edit');
+        return redirect()->route('pembayaran.index')->with('success',$val['jumlah'].' Berhasil di edit');
     }
 
     /**

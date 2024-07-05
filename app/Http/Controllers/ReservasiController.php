@@ -82,7 +82,7 @@ class ReservasiController extends Controller
         }
         $val = $request->validate([
             'meja_id'=>"required",
-            'no_reservasi' => "required|unique:reservasis",
+            'no_reservasi' => "required",
             'menu_id'=>"required",
             'jumlah'=>"required|max:45",
             'nama'=>"required|max:45",

@@ -1,6 +1,6 @@
 @extends('layout.main')
 
-@section('title', 'reservasi')
+@section('title', 'pembayaran')
 
 @section('content')
 
@@ -46,11 +46,22 @@
                         <span class="text-danger">{{$message}}</span>
                     @enderror
                 </div>
+                <div class="form-group">
+                    <label class="block text-sm" for="menu_id">Harga Menu</label>
+                    <select class="block w-full mt-1 text-sm focus:border-purple-400 focus:outline-none focus:shadow-outline-purple form-input"  id="menu_id" name="menu_id" >
+                        @foreach ($menu as $items)
+                        <option value="{{$items['id']}}">
+                            {{$items['harga_menu']}}
+                        </option>
+                    @endforeach
+                </select>
+                </div>
+
                       <div class="form-group">
-                        <label for="total">Total</label>
-                        <input type="text" class="block w-full mt-1 text-sm focus:border-purple-400 focus:outline-none focus:shadow-outline-purple form-input" id="total" name="total" 
-                            placeholder="total">
-                        @error('total')
+                        <label for="jumlah">Jumlah</label>
+                        <input type="text" class="block w-full mt-1 text-sm focus:border-purple-400 focus:outline-none focus:shadow-outline-purple form-input" id="jumlah" name="jumlah" 
+                            placeholder="jumlah">
+                        @error('jumlah')
                             <span class="text-danger">{{$message}}</span>
                         @enderror
                   </div><br>

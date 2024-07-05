@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('pembayarans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('reservasi_id')->constrained();
-            $table->foreignId('meja_id');
+            $table->foreignId('meja_id')->constrained();
+            $table->foreignId('menu_id')->constrained();
             $table->string('metode');
-            $table->string('total');
+            $table->string('jumlah');
             $table->timestamps();
 
         });
